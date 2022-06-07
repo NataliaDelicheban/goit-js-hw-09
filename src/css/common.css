@@ -16,3 +16,10 @@ img {
   display: block;
   max-width: 100%;
 }
+.timer {
+display: flex;
+}
+.field {
+  margin: 10px 0;
+  padding: 5px;
+}
