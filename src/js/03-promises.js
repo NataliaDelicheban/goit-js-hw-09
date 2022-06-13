@@ -11,25 +11,26 @@ form.addEventListener('submit', formSubmit);
 
 function formSubmit(e) {
   e.preventDefault();
-  setTimeout(() => {
-    for (let i = 0; i < amount.value; i += 1) {
-      const s = +delay.value + +step.value * i;
-      position = i;
-      createPromise(position, s)
-        .then(({ position, delay }) => {
-          Notiflix.Notify.success(
-            `✅ Fulfilled promise ${position} in ${delay}ms`
-          );
-          //console.log(`✅ Fulfilled promise ${position} in ${delay}ms`);
-        })
-        .catch(({ position, delay }) => {
-          Notiflix.Notify.failure(
-            `❌ Rejected promise ${position} in ${delay}ms`
-          );
-          //console.log(`❌ Rejected promise ${position} in ${delay}ms`);
-        });
-    }
-  }, delay.value);
+  //setTimeout(() => {
+  for (let i = 0; i < amount.value; i += 1) {
+    const s = +delay.value + +step.value * i;
+    position = i;
+    createPromise(position, s, delay)
+      .then(({ position, delay }) => {
+        Notiflix.Notify.success(
+          `✅ Fulfilled promise ${position} in ${delay}ms`
+        );
+        //console.log(`✅ Fulfilled promise ${position} in ${delay}ms`);
+      })
+      .catch(({ position, delay }) => {
+        Notiflix.Notify.failure(
+          `❌ Rejected promise ${position} in ${delay}ms`
+        );
+        //console.log(`❌ Rejected promise ${position} in ${delay}ms`);
+      });
+    delay.value;
+  }
+  //}, delay.value);
 }
 
 function createPromise(position, delay) {
