@@ -33,7 +33,7 @@ const options = {
 flatpickr(input, options);
 
 function timer(targetDate) {
-  timerId = setInterval(() => {
+  const timerId = setInterval(() => {
     const delta = new Date(targetDate) - new Date();
     if (delta <= 0) {
       clearInterval(timerId);
